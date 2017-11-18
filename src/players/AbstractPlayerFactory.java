@@ -25,7 +25,7 @@ public class AbstractPlayerFactory {
             case MAXI_MIN:
                 return new MaximinPlayer(rowPlayer, board);
             case YOUR_ALG:
-                break;
+                return new OurAlgorithmPlayer(rowPlayer, board);
             default:
         }
 
