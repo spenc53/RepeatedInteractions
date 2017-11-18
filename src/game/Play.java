@@ -3,6 +3,10 @@ package game;
 import players.AbstractPlayerFactory;
 import players.Player;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 /**
  * Created by spencer on 11/15/17.
  */
@@ -50,10 +54,36 @@ public class Play {
 
 
     public static void main(String args[]){
-        Play play = new Play(Player.BULLY, Player.BULLY, Board.CHICKEN, 100);
-        double scores[] = play.playGame();
-        System.out.println("Player1 score: " + scores[0]);
-        System.out.println("Player2 score: " + scores[1]);
+//        Play play = new Play(Player.BULLY, Player.BULLY, Board.CHICKEN, 100);
+//        double scores[] = play.playGame();
+//        System.out.println("Player1 score: " + scores[0]);
+//        System.out.println("Player2 score: " + scores[1]);
+
+        try {
+            PrintWriter pw = new PrintWriter(new File("stag_hunt.csv"));
+            for(String player1 : Player.TYPES){
+                pw.print(player1);
+                pw.print(",");
+            }
+            pw.print("\n");
+
+            for(String player1 : Player.TYPES){
+                for(String player2 : Player.TYPES){
+                    Play play = new Play(player1, player2, Board.STAG_HUNT, 100);
+                    double scores[] = play.playGame();
+                    pw.print(scores[0]);
+                    pw.print(",");
+                }
+                pw.print("\n");
+            }
+
+            pw.flush();
+            pw.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }

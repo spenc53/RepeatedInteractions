@@ -18,10 +18,11 @@ public class OurAlgorithmPlayer extends Player {
                 int square = board.getScore(i, j).getRowScore() - board.getScore(i, j).getColScore();
                 square *= rowPlayer ? 1 : -1;
                 if (square == max 
-                    && rowPlayer ? board.getScore(i, j).getRowScore() : board.getScore(i, j).getColScore() > rowPlayer ? board.getScore(location[0], location[1]).getRowScore : board.getScore(location[0], location[1]).getColScore()
+                    && (rowPlayer ? board.getScore(i, j).getRowScore() : board.getScore(i, j).getColScore()) > (rowPlayer ? board.getScore(location[0], location[1]).getRowScore() : board.getScore(location[0], location[1]).getColScore())
                     || square > max) {
                     max = square;
-                    location = {i, j};
+                    location[0] = i;
+                    location[1] = j;
                 }
             }
         }
