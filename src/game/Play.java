@@ -48,10 +48,11 @@ public class Play {
         return scores;
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Play play = new Play(Player.TIT_FOR_TAT, Player.TIT_FOR_TAT, Board.CHICKEN, 1000);
         double scores[] = play.playGame();
         System.out.println("Player1 score: " + scores[0]);
         System.out.println("Player2 score: " + scores[1]);
+
     }
 }
