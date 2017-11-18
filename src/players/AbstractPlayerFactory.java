@@ -3,6 +3,7 @@ package players;
 import game.Board;
 import players.AI.RandomPlayer;
 import players.AI.TitForTatPlayer;
+import players.AI.BullyPlayer;
 
 import static players.Player.*;
 
@@ -22,7 +23,7 @@ public class AbstractPlayerFactory {
             case FICTITIOUS_PLAY:
                 break;
             case BULLY:
-                break;
+                return new BullyPlayer(rowPlayer, board);
             case MAXI_MIN:
                 break;
             case YOUR_ALG:
