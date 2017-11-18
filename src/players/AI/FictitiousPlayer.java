@@ -13,13 +13,16 @@ public class FictitiousPlayer extends Player {
         super(rowPlayer, board);
         priors = new double[2];
         priors[0] = 1;
-        priors[0] = 1;
+        priors[1] = 1;
     }
 
     @Override
     public int getMove(int move) {
-
-
+        if(move == 0){
+            priors[0] += 1;
+        }else if(move == 1){
+            priors[1] += 1;
+        }
         double prob_a = priors[0]/(priors[0] + priors[1]);
         double prob_b = priors[1]/(priors[0] + priors[1]);
         if(rowPlayer){
