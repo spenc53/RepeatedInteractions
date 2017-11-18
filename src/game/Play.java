@@ -50,7 +50,7 @@ public class Play {
 
 
     public static void main(String args[]){
-        Play play = new Play(Player.BULLY, Player.BULLY, Board.CHICKEN, 1);
+        Play play = new Play(Player.BULLY, Player.BULLY, Board.CHICKEN, 100);
         double scores[] = play.playGame();
         System.out.println("Player1 score: " + scores[0]);
         System.out.println("Player2 score: " + scores[1]);
