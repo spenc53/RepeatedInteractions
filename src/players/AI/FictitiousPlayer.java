@@ -27,13 +27,13 @@ public class FictitiousPlayer extends Player {
         double prob_b = priors[1]/(priors[0] + priors[1]);
         if(rowPlayer){
             double score_a = prob_a * board.getScore(0,0).getRowScore() + prob_b * board.getScore(0,1).getRowScore();
-            double score_b = prob_b * board.getScore(1,0).getRowScore() + prob_b * board.getScore(1,1).getRowScore();
+            double score_b = prob_a * board.getScore(1,0).getRowScore() + prob_b * board.getScore(1,1).getRowScore();
             if (score_a > score_b) return 0;
             return 1;
         }
         else{
             double score_a = prob_a * board.getScore(0,0).getColScore() + prob_b * board.getScore(1,0).getColScore();
-            double score_b = prob_b * board.getScore(0,1).getColScore() + prob_b * board.getScore(1,1).getColScore();
+            double score_b = prob_a * board.getScore(0,1).getColScore() + prob_b * board.getScore(1,1).getColScore();
             if (score_a > score_b) return 0;
             return 1;
         }

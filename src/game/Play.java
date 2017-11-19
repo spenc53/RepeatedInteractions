@@ -60,7 +60,7 @@ public class Play {
 //        System.out.println("Player2 score: " + scores[1]);
 
         try {
-            PrintWriter pw = new PrintWriter(new File("stag_hunt.csv"));
+            PrintWriter pw = new PrintWriter(new File("chicken.csv"));
             for(String player1 : Player.TYPES){
                 pw.print(player1);
                 pw.print(",");
@@ -69,7 +69,7 @@ public class Play {
 
             for(String player1 : Player.TYPES){
                 for(String player2 : Player.TYPES){
-                    Play play = new Play(player1, player2, Board.STAG_HUNT, 100);
+                    Play play = new Play(player1, player2, Board.CHICKEN, 100);
                     double scores[] = play.playGame();
                     pw.print(scores[0]);
                     pw.print(",");
